@@ -17,5 +17,12 @@ public class Main {
         repo_est.CargarCSV("estudiantes.csv");
         repo_est_car.CargarCSV("estudianteCarrera.csv");
 
+      // c)  System.out.println("Estudiante ordenados alfabeticamente: " + repo_est.obtenerTodosEstudiantesOrdenados());
+      // d)  System.out.println("Estudiante obtenido por numero legajo: " + repo_est.buscarEstudiantePorLU(28886));
+      // e)  System.out.println("Estudiante obtenidos por genero: " + repo_est.buscarEstudiantesPorGenero("Polygender"));
+      // f)  System.out.println("Carreras ordenadas por cantidad de inscriptos: " + repo_car.carrerasConMasInscriptos());
+      // g)  System.out.println("Estudiantes obtenidos por carrera y ciudad: " + repo_est.estudiantesPorCarreraYciudad("Tudai", "Rauch"));
+      // 3)  System.out.println("Reporte de carrera: " + repo_car.reporteCarrera(1, "TUDAI"));
+
+        }
     }
-}

@@ -90,4 +90,22 @@ public class Repository_estudiante {
         em.close();
         return lista;
     }
+
+    public void darDeAltaEstudiante(EntityManager em, Estudiante estudiante) {
+        try {
+            em.getTransaction().begin();
+            em.persist(estudiante);
+            em.getTransaction().commit();
+
+            System.out.println("✅ Estudiante dado de alta:");
+            System.out.println("DNI: " + estudiante.getDni_estudiante());
+            System.out.println("Nombre: " + estudiante.getNombre() + " " + estudiante.getApellido());
+            System.out.println("LU: " + estudiante.getLu());
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            System.out.println("❌ Error al dar de alta estudiante: " + e.getMessage());
+        }
+    }
+
 }

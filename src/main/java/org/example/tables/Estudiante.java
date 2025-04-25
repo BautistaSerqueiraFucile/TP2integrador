@@ -39,4 +39,14 @@ public class Estudiante {
 
     @OneToMany (mappedBy = "estudiante")
     private List<Estudiante_carrera> carreras;
+
+    public Estudiante(int dni, String nombre, String apellido, int edad, String genero, String ciudad, int lu) {
+        this.dni_estudiante = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.genero = genero;
+        this.ciudad = ciudad;
+        this.lu = lu;
+    }
 }

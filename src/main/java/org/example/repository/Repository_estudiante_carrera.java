@@ -40,4 +40,34 @@ public class Repository_estudiante_carrera {
             ent.close();
         }
     }
+
+    public void matricularEstudianteEnCarrera(EntityManager em, int dni, int idCarrera, int anioInscripcion) {
+        try {
+            Estudiante estudiante = em.find(Estudiante.class, dni);
+            Carrera carrera = em.find(Carrera.class, idCarrera);
+
+            if (estudiante == null || carrera == null) {
+                System.out.println("❌ No se encontró el estudiante o la carrera.");
+                return;
+            }
+
+            Estudiante_carrera ec = new Estudiante_carrera();
+            ec.setEstudiante(estudiante);
+            ec.setCarrera(carrera);
+            ec.setAnio_inscripcion(anioInscripcion);
+            ec.setAnio_graduacion(0);
+            ec.setAntiguedad(0);
+
+            em.getTransaction().begin();
+            em.persist(ec);
+            em.getTransaction().commit();
+
+            System.out.println("✅ Estudiante matriculado en carrera: " + carrera.getCarrera());
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            System.out.println("❌ Error al matricular estudiante: " + e.getMessage());
+        }
+    }
+
 }
